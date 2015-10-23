@@ -17,8 +17,8 @@
         android:text="nom"
         android:ems="10"
         android:id="@+id/editText"
-        android:layout_marginTop="93dp"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/textView2"
         android:layout_alignParentStart="true" />
 
     <EditText
@@ -35,7 +35,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/editText2"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:id="@+id/radioGroup"
+        android:layout_above="@+id/editText4">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -97,12 +99,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="veuillez vous inscrire"
+        android:text="veuillez saisir vos informations"
         android:id="@+id/textView2"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="S&apos;enregistrer"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
