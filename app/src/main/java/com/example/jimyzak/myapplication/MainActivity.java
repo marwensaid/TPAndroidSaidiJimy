@@ -1,5 +1,6 @@
 package com.example.jimyzak.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -48,5 +49,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.register:
+                startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+                break;
+
+            case R.id.login:
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                break;
+        }
     }
 }
