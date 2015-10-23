@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Veuillez saisir vos informations"
+        android:text="Merci de vous connecter pour acceder à l&apos;application"
         android:id="@+id/textView"
         android:textColor="#3236ee" />
 
