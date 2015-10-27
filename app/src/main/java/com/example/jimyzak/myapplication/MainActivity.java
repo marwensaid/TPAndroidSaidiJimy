@@ -20,20 +20,22 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button buttonAuth=(Button) findViewById(R.id.buttonAuth);
+        Button buttonAuth = (Button) findViewById(R.id.buttonAuth);
         buttonAuth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
-        Button buttonEnr=(Button) findViewById(R.id.buttonEnr);
+        Button buttonEnr = (Button) findViewById(R.id.buttonEnr);
         buttonEnr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, RegisterActivity.class));
             }
         });
+
+
     }
 
     @Override
@@ -59,18 +61,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @Override
-    public void onClick(View view) {
-    switch (view.getId()){
-    case R.id.buttonAuth:
-    startActivity(new Intent(MainActivity.this, RegisterActivity.class));
-    break;
+     * @Override public void onClick(View view) {
+     * switch (view.getId()){
+     * case R.id.buttonAuth:
+     * startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+     * break;
+     * <p/>
+     * case R.id.buttonEnr:
+     * startActivity(new Intent(MainActivity.this, LoginActivity.class));
+     * break;
+     * }
+     * <p/>
+     * }
+     */
 
-    case R.id.buttonEnr:
-    startActivity(new Intent(MainActivity.this, LoginActivity.class));
-    break;
-    }
-
-    } */
 
 }
