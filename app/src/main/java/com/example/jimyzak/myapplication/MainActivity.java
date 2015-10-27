@@ -51,14 +51,13 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.register:
+            case R.id.buttonAuth:
                 startActivity(new Intent(MainActivity.this, RegisterActivity.class));
                 break;
 
-            case R.id.login:
+            case R.id.buttonEnr:
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 break;
         }
