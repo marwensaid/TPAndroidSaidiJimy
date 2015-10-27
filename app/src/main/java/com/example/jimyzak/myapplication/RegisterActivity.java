@@ -1,8 +1,11 @@
 package com.example.jimyzak.myapplication;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -21,7 +24,6 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
     }
-}
 
     class MyTask extends AsyncTask<String, String, String> {
 
@@ -49,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 StringEntity entity;
-                entity = new StringEntity(obj.toJSONString());
+                entity = new StringEntity(obj.toString());
 
                 post.setEntity(entity);
 
@@ -76,6 +78,30 @@ public class RegisterActivity extends AppCompatActivity {
             return null;
         }
 
+        ProgressDialog progressDialog;
+
+        public void showProgressDialog(boolean isVisible) {
+            if (isVisible) {
+                if (progressDialog == null) {
+                    progressDialog = new ProgressDialog(RegisterActivity.this);
+                    progressDialog.setMessage(RegisterActivity.this.getResources().getString(R.string.please_wait));
+                    progressDialog.setCancelable(false);
+                    progressDialog.setIndeterminate(true);
+                    progressDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
+                            progressDialog = null;
+                        }
+                    });
+                    progressDialog.show();
+                }
+            } else {
+                if (progressDialog != null) {
+                    progressDialog.dismiss();
+                }
+            }
+        }
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -83,7 +109,10 @@ public class RegisterActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String theResponse) {
-            super.onPostExecute(aVoid);
+            super.onPostExecute(theResponse);
+            showProgressDialog(false);
+            Toast.makeText(RegisterActivity.this, R.string.inscription_ok, Toast.LENGTH_LONG).show();
         }
     }
+}
 
