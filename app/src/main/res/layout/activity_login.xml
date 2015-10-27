@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Merci de vous connecter pour acceder à l&apos;application"
-        android:id="@+id/textView"
+        android:id="@+id/textViewMsgAcLog"
         android:textColor="#3236ee" />
 
     <ProgressBar android:id="@+id/login_progress" style="?android:attr/progressBarStyleLarge"
@@ -48,7 +48,7 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <Button android:id="@+id/email_sign_in_button" style="?android:textAppearanceSmall"
+            <Button android:id="@+id/connectAcLogin" style="?android:textAppearanceSmall"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:layout_marginTop="16dp" android:text="Se connecter"
                 android:textStyle="bold" />
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Mot de passe oublié?"
-        android:id="@+id/textView2"
+        android:id="@+id/textViewMPOublie"
         android:textColor="#3236ee"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>

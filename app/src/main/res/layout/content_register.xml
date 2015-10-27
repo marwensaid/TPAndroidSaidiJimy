@@ -16,9 +16,9 @@
         android:inputType="textPersonName"
         android:text="nom"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/editTextNom"
         android:layout_marginTop="39dp"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/textViewMPOublie"
         android:layout_alignParentStart="true" />
 
     <EditText
@@ -27,33 +27,33 @@
         android:inputType="textPersonName"
         android:text="prénom"
         android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/editText"
+        android:id="@+id/editTextPrenom"
+        android:layout_below="@+id/editTextNom"
         android:layout_alignParentStart="true" />
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/editTextPrenom"
         android:layout_alignParentStart="true"
         android:id="@+id/radioGroup"
-        android:layout_above="@+id/editText4">
+        android:layout_above="@+id/editTextMail">
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="masculin"
-            android:id="@+id/radioButton"
-            android:layout_below="@+id/editText2"
+            android:id="@+id/radioButtonMale"
+            android:layout_below="@+id/editTextPrenom"
             android:layout_alignParentStart="true" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="féminin"
-            android:id="@+id/radioButton2"
-            android:layout_below="@+id/editText2"
-            android:layout_alignEnd="@+id/editText2" />
+            android:id="@+id/radioButtonFemme"
+            android:layout_below="@+id/editTextPrenom"
+            android:layout_alignEnd="@+id/editTextPrenom" />
     </RadioGroup>
 
     <EditText
@@ -61,9 +61,9 @@
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
-        android:id="@+id/editText3"
+        android:id="@+id/editTextPhone"
         android:text="phone"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/editTextPrenom"
         android:layout_alignParentStart="true"
         android:layout_marginTop="75dp" />
 
@@ -72,35 +72,35 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editText4"
+        android:id="@+id/editTextMail"
         android:text="e-mail"
-        android:layout_below="@+id/editText3"
+        android:layout_below="@+id/editTextPhone"
         android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText5"
+        android:id="@+id/editTextPassword"
         android:text="password"
-        android:layout_below="@+id/editText4"
+        android:layout_below="@+id/editTextMail"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/editText4" />
+        android:layout_alignEnd="@+id/editTextMail" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText6"
+        android:id="@+id/editTextConfirmePassword"
         android:text="confirme password"
-        android:layout_below="@+id/editText5"
+        android:layout_below="@+id/editTextPassword"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/editText5" />
+        android:layout_alignEnd="@+id/editTextPassword" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="veuillez saisir vos informations"
-        android:id="@+id/textView2"
+        android:id="@+id/textViewMPOublie"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
