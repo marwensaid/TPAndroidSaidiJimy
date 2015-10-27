@@ -33,11 +33,11 @@
 
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/editTextPrenom"
         android:layout_alignParentStart="true"
         android:id="@+id/radioGroup"
-        android:layout_above="@+id/editTextMail">
+        android:orientation="horizontal">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -63,9 +63,8 @@
         android:ems="10"
         android:id="@+id/editTextPhone"
         android:text="phone"
-        android:layout_below="@+id/editTextPrenom"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="75dp" />
+        android:layout_below="@+id/radioGroup"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -110,7 +109,7 @@
         android:layout_height="wrap_content"
         android:text="S&apos;enregistrer"
         android:id="@+id/buttonRegister"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/editTextConfirmePassword"
         android:layout_alignParentStart="true" />
 
 

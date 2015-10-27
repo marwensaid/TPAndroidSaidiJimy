@@ -11,8 +11,7 @@
 
     <TextView android:text="Veuillez vous connectez , si vous possédez pas un compte enregistrez vous" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewAcceuil"
-        android:textColorHighlight="14" />
+        android:id="@+id/textViewAcceuil"/>
 
     <Button
         android:layout_width="wrap_content"
