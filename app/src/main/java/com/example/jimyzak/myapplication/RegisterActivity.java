@@ -8,7 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -22,15 +25,37 @@ import java.io.InputStreamReader;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    EditText tnom = (EditText)findViewById(R.id.editTextNom);
+    EditText tprenom = (EditText)findViewById(R.id.editTextPrenom);
+    RadioButton tsexemal = (RadioButton)findViewById(R.id.radioButtonMale);
+    RadioButton tsexefemme = (RadioButton)findViewById(R.id.radioButtonFemme);
+    EditText tpays = (EditText)findViewById(R.id.spinner);
+    EditText tphone = (EditText)findViewById(R.id.editTextPhone);
+    EditText temail = (EditText)findViewById(R.id.editTextMail);
+    EditText tpass = (EditText)findViewById(R.id.editTextPassword);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        Button buttonAuth = (Button) findViewById(R.id.buttonRegister);
-        buttonAuth.setOnClickListener(new View.OnClickListener() {
+        Button buttonReg = (Button) findViewById(R.id.buttonRegister);
+        buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Personne p = new Personne();
+                p.setNom(tnom.getText().toString());
+                p.setPrenom(tprenom.getText().toString());
+                if(tsexemal.isChecked())
+                    p.setSexe(tsexemal.getText().toString());
+                if(tsexefemme.isChecked())
+                    p.setSexe(tsexefemme.getText().toString());
+                p.setPays(tpays.getText().toString());
+                p.setPhone(Integer.parseInt(tphone.getText().toString()));
+                p.setEmail(temail.getText().toString());
+                p.setPassword(tpass.getText().toString());
+
+
                 new MyTask().execute();
             }
         });
@@ -57,8 +82,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                 post.setHeader("Content-Type", "application/json");
                 JSONObject obj = new JSONObject();
-                obj.put("prenom", "Marwen");
-                obj.put("nom", "Zak");
+                obj.put("prenom","");
+                obj.put("nom","");
                 obj.put("sex", "male");
                 obj.put("telephone", "060606060");
                 obj.put("email", "marwen@zak.com");
