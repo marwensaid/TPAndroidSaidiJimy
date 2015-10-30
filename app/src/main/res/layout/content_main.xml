@@ -18,17 +18,11 @@
         android:layout_height="wrap_content"
         android:text="S&apos;authentifier"
         android:id="@+id/buttonAuth"
-<<<<<<< Updated upstream
         android:layout_below="@+id/textViewAcceuil"
         android:layout_marginTop="164dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:background="@drawable/mybutton1"/>
-=======
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
->>>>>>> Stashed changes
 
     <Button
         android:layout_width="wrap_content"
@@ -38,19 +32,13 @@
         android:layout_marginTop="55dp"
         android:layout_below="@+id/buttonAuth"
         android:layout_alignStart="@+id/buttonAuth"
-<<<<<<< Updated upstream
         android:layout_alignParentEnd="true"
         android:background="@drawable/mybutton1" />
-=======
-        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
-        android:layout_centerHorizontal="true"
-        android:src="/home/marwen/AndroidStudioProjects/TPAndroidSaidiJimy/app/src/main/res/drawable/AlienwareArena_Flag_1280x720.jpg"
-        android:layout_alignParentTop="true"
-        android:layout_above="@+id/buttonAuth" />
->>>>>>> Stashed changes
+        android:layout_below="@+id/textViewAcceuil"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
