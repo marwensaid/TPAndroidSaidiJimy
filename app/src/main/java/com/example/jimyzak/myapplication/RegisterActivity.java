@@ -7,7 +7,9 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -34,6 +36,11 @@ public class RegisterActivity extends AppCompatActivity {
                 new MyTask().execute();
             }
         });
+
+        String[] countries = getResources().getStringArray(R.array.country_arrays);
+        Spinner sp = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, countries);
+        sp.setAdapter(dataAdapter);
     }
 
     class MyTask extends AsyncTask<String, String, String> {

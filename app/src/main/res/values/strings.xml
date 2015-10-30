@@ -18,4 +18,15 @@
     </string>
     <string name="please_wait" />
     <string name="inscription_ok" />
+    <string-array name="country_arrays">
+        <item>Pays</item>
+        <item>Malaysia</item>
+        <item>United States</item>
+        <item>Indonesia</item>
+        <item>France</item>
+        <item>Italy</item>
+        <item>Singapore</item>
+        <item>New Zealand</item>
+        <item>India</item>
+    </string-array>
 </resources>
