@@ -30,38 +30,56 @@ public class RegisterActivity extends AppCompatActivity {
     View view = null;
 
 
-    EditText tnom = (EditText) findViewById(R.id.editTextNom);
-    EditText tprenom = (EditText) findViewById(R.id.editTextPrenom);
-    RadioButton tsexemal = (RadioButton) findViewById(R.id.radioButtonMale);
-    RadioButton tsexefemme = (RadioButton) findViewById(R.id.radioButtonFemme);
-    EditText tpays = (EditText) findViewById(R.id.spinner);
-    EditText tphone = (EditText) findViewById(R.id.editTextPhone);
-    EditText temail = (EditText) findViewById(R.id.editTextMail);
-    EditText tpass = (EditText) findViewById(R.id.editTextPassword);
-    EditText tconfirmpass = (EditText) findViewById(R.id.editTextConfirmePassword);
+    EditText tnom ;
+    EditText tprenom ;
+    RadioButton tsexemal ;
+    RadioButton tsexefemme ;
+    Spinner tpays ;
+    EditText tphone ;
+    EditText temail ;
+    EditText tpass ;
+    EditText tconfirmpass ;
+    Button buttonReg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        final String[] sexGenre = {""};
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        Button buttonReg = (Button) findViewById(R.id.buttonRegister);
+
+        tnom = (EditText) findViewById(R.id.editTextNom);
+        tprenom = (EditText) findViewById(R.id.editTextPrenom);
+        tsexemal = (RadioButton) findViewById(R.id.radioButtonMale);
+        tsexefemme = (RadioButton) findViewById(R.id.radioButtonFemme);
+        tpays = (Spinner) findViewById(R.id.spinner);
+        tphone = (EditText) findViewById(R.id.editTextPhone);
+        temail = (EditText) findViewById(R.id.editTextMail);
+        tpass = (EditText) findViewById(R.id.editTextPassword);
+        tconfirmpass = (EditText) findViewById(R.id.editTextConfirmePassword);
+
+        final String[] sexGenre = {""};
+
+
+        buttonReg = (Button) findViewById(R.id.buttonRegister);
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                p.setNom(tnom.getText().toString());
-                p.setPrenom(tprenom.getText().toString());
-                if (tsexemal.isChecked())
-                    p.setSexe(tsexemal.getText().toString());
-                if (tsexefemme.isChecked())
-                    p.setSexe(tsexefemme.getText().toString());
-                p.setPays(tpays.getText().toString());
-                p.setPhone(String.valueOf(Integer.parseInt(tphone.getText().toString())));
-                p.setEmail(temail.getText().toString());
-                p.setPassword(tpass.getText().toString());
-                p.setConfirmePassword(tconfirmpass.getText().toString());
+                try {
+                    p.setNom(tnom.getText().toString());
+                    p.setPrenom(tprenom.getText().toString());
+                    if (tsexemal.isChecked())
+                        p.setSexe(tsexemal.getText().toString());
+                    if (tsexefemme.isChecked())
+                        p.setSexe(tsexefemme.getText().toString());
+                    p.setPays(tpays.getSelectedItem().toString());
+                    p.setPhone(String.valueOf(Integer.parseInt(tphone.getText().toString())));
+                    p.setEmail(temail.getText().toString());
+                    p.setPassword(tpass.getText().toString());
+                    p.setConfirmePassword(tconfirmpass.getText().toString());
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
 
                 if (TextUtils.isEmpty(p.nom)) {
                     tnom.setError(getString(R.string.error_field_required));
