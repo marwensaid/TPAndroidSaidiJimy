@@ -19,7 +19,7 @@ public class suppCompteUser extends AsyncTask<String, Void, String> {
         URL url = null;
 
         try {
-            url = new URL("http://92.243.14.22/person/" + params[0]);
+            url = new URL("http://92.243.14.22:1337/person/" + params[0]);
             HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
             httpCon.setDoOutput(true);
             httpCon.setRequestProperty("Content-Type", "application/xml");
@@ -27,10 +27,6 @@ public class suppCompteUser extends AsyncTask<String, Void, String> {
             httpCon.connect();
             Log.d("stack", "" + httpCon.getResponseCode());
 
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (ProtocolException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

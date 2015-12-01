@@ -150,7 +150,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     class MyTask extends AsyncTask<String, String, String> {
 
-        private String url = "http://92.243.14.22/person/";
+        private String url = "http://92.243.14.22:1337/person/";
 
         @Override
         protected String doInBackground(String... voids) {

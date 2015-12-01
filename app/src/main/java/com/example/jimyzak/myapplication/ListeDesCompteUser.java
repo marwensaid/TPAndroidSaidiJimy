@@ -21,8 +21,8 @@ import java.util.logging.Logger;
  * Created by marwen on 01/12/15.
  */
 public class ListeDesCompteUser extends AppCompatActivity {
-    AQuery aq;
-    String url = "http://92.243.14.22/person/";
+    AQuery query;
+    String url = "http://92.243.14.22:1337/person/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
