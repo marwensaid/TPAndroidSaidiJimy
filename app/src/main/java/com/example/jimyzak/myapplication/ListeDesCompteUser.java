@@ -15,6 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 /**
  * Created by marwen on 01/12/15.
@@ -48,20 +49,18 @@ public class ListeDesCompteUser extends AppCompatActivity {
                                 a.setTimeCreation(o.getString("timeCreation"));
                                 a.setId(o.getString("id"));
                             } else {
-                                throw new JSONException("Valeur vide ou nulle");
+                                throw new JSONException("stack //TODO");
                             }
 
                             listCompteUser.add(a);
                         } catch (JSONException e) {
-
-                            continue;
+                            status.getCode();
                         }
                     }
-                    CompteUserConf adapter = new CompteUserConf(ListeDesCompteUser.this, listCompteUser);
-                    lst.setAdapter((ListAdapter) adapter);
+                    CompteUserConf compteUserConf = new CompteUserConf(ListeDesCompteUser.this, listCompteUser);
+                    lst.setAdapter(compteUserConf);
                 } else {
-                    //ajax error, show error code
-                    Log.d("ListAccounts", "Ajax Error");
+                    Log.d("listCompteUser", "Stack ");
                 }
             }
         });
