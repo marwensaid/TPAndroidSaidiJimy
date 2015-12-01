@@ -1,9 +1,10 @@
 package com.example.jimyzak.myapplication;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,37 @@ public class CompteUserConf extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        View view = convertView;
+        this.positionA = position;
+        ComptePerso comptePerso = null;
+        if(view==null){
+            view = View.inflate(listeDesCompteUser, R.layout.content_list_accounts, null);
+            comptePerso = new ComptePerso();
+            comptePerso.nom_prenom= (TextView)view.findViewById(R.id.title_name_firstname);
+            comptePerso.bSuppAccount = (Button) view.findViewById(R.id.bSuppAccount);
+            comptePerso.bSuppAccount.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    System.out.println("delete compteUser");
+                    String id =listCompteUser.get(CompteUserConf.this.positionA).getId();
+                    System.out.println("id ==> " + id);
+                    suppCompteUser task = new suppCompteUser();
+                    task.execute(id);
+                    listCompteUser.remove(CompteUserConf.this.positionA);
+                    CompteUserConf.this.notifyDataSetChanged();
+
+
+                }
+            });
+
+            view.setTag(comptePerso);
+        }
+        else{
+            comptePerso = (ComptePerso) view.getTag();
+        }
+        Personne personne= listCompteUser.get(position);
+        comptePerso.nom_prenom.setText(personne.getPrenom());
+        return view;
     }
 
 
