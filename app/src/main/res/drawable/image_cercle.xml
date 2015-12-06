@@ -11,10 +11,10 @@
     </item>
     <item>
         <shape android:shape="oval">
-            <stroke android:width="@dimen/bt_stroke_big" android:color="@android:color/white" />
+            <stroke android:width="5dp" android:color="@android:color/white" />
             <solid android:color="@android:color/darker_gray" />
-            <corners android:radius="@dimen/widget_radius" />
-            <size android:height="@dimen/five_step" android:width="@dimen/five_step" />
+            <corners android:radius="50dp" />
+            <size android:height="100dp" android:width="100dp" />
         </shape>
     </item>
 
