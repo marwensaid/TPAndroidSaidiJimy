@@ -3,7 +3,6 @@ package com.example.jimyzak.myapplication;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.androidquery.AQuery;
@@ -15,7 +14,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.logging.Logger;
 
 /**
  * Created by marwen on 01/12/15.
@@ -27,14 +25,14 @@ public class ListeDesCompteUser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_liste_accounts);
+        setContentView(R.layout.activity_liste_des_compte_user);
         AQuery aq = new AQuery(this);
         final ArrayList<Personne> listCompteUser = new ArrayList<>();
 
         aq.ajax(url, JSONArray.class, new AjaxCallback<JSONArray>() {
             @Override
             public void callback(String url, JSONArray json, AjaxStatus status) {
-                ListView lst = (ListView) findViewById(R.id.list_accounts);
+                ListView lst = (ListView) findViewById(R.id.list_compte);
                 if (json != null) {
 
                     for (int i = 0; i < json.length(); i++) {

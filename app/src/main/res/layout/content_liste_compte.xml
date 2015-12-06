@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/title_name_firstname"
+        android:id="@+id/title_nom_prenom"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="15dp"
         android:textColor="@color/button_material_dark" />
@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="34dp"
         android:text="Supprimer"
-        android:id="@+id/bSuppAccount"
+        android:id="@+id/buttomDeleteCU"
         android:layout_weight="0.21" />
     </LinearLayout>
     </LinearLayout>
