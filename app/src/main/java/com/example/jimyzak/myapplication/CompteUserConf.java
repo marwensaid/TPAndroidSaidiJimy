@@ -46,8 +46,8 @@ public class CompteUserConf extends BaseAdapter {
         if(view==null){
             view = View.inflate(listeDesCompteUser, R.layout.content_liste_compte, null);
             comptePerso = new ComptePerso();
-            comptePerso.nom_prenom= (TextView)view.findViewById(R.id.title_name_firstname);
-            comptePerso.bSuppAccount = (Button) view.findViewById(R.id.bSuppAccount);
+            comptePerso.nom_prenom= (TextView)view.findViewById(R.id.title_nom_prenom);
+            comptePerso.bSuppAccount = (Button) view.findViewById(R.id.buttomDeleteCU);
             comptePerso.bSuppAccount.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
