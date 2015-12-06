@@ -44,7 +44,7 @@ public class CompteUserConf extends BaseAdapter {
         this.positionA = position;
         ComptePerso comptePerso = null;
         if(view==null){
-            view = View.inflate(listeDesCompteUser, R.layout.content_list_accounts, null);
+            view = View.inflate(listeDesCompteUser, R.layout.content_liste_compte, null);
             comptePerso = new ComptePerso();
             comptePerso.nom_prenom= (TextView)view.findViewById(R.id.title_name_firstname);
             comptePerso.bSuppAccount = (Button) view.findViewById(R.id.bSuppAccount);
