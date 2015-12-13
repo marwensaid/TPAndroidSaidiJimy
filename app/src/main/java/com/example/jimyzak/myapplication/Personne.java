@@ -12,28 +12,6 @@ import java.util.concurrent.TransferQueue;
  */
 public class Personne implements Serializable, Transformer {
 
-    @Override
-    public String toString() {
-        return "CompteUser{" +
-                "email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", telephone='" + phone + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", nom='" + nom + '\'' +
-                ", createdby='" + creation + '\'' +
-                ", sexe='" + sexe + '\'' +
-                ", connected='" + connectee + '\'' +
-                ", createdAt='" + timeCreation + '\'' +
-                ", updatedAt='" + timeMAJ + '\'' +
-                ", id='" + id + '\'' +
-                '}';
-    }
-
-    @Override
-    public <T> T transform(String url, Class<T> type, String encoding, byte[] data, AjaxStatus status) {
-        Gson g = new Gson();
-        return g.fromJson(new String(data), type);
-    }
 
     public String nom;
     public String prenom;
@@ -170,4 +148,28 @@ public class Personne implements Serializable, Transformer {
         this.timeCreation = timeCreation;
         this.timeMAJ = timeMAJ;
     }
+
+    @Override
+    public String toString() {
+        return "CompteUser{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", telephone='" + phone + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", nom='" + nom + '\'' +
+                ", createdby='" + creation + '\'' +
+                ", sexe='" + sexe + '\'' +
+                ", connected='" + connectee + '\'' +
+                ", createdAt='" + timeCreation + '\'' +
+                ", updatedAt='" + timeMAJ + '\'' +
+                ", id='" + id + '\'' +
+                '}';
+    }
+
+    @Override
+    public <T> T transform(String url, Class<T> type, String encoding, byte[] data, AjaxStatus status) {
+        Gson g = new Gson();
+        return g.fromJson(new String(data), type);
+    }
+
 }
