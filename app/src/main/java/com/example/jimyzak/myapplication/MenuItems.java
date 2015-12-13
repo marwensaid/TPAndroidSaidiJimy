@@ -1,10 +1,10 @@
 package com.example.jimyzak.myapplication;
 
-import android.database.DataSetObserver;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -12,39 +12,22 @@ import java.util.ArrayList;
  * Created by marwen on 13/12/15.
  */
 public class MenuItems extends BaseAdapter {
-    
-    public MenuItems(MenuActivity menuActivity, ArrayList<Menu> menuArrayList) {
+    Context context;
+    ArrayList<Menu> menuArrayList;
 
-    }
-
-    @Override
-    public boolean areAllItemsEnabled() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled(int position) {
-        return false;
-    }
-
-    @Override
-    public void registerDataSetObserver(DataSetObserver observer) {
-
-    }
-
-    @Override
-    public void unregisterDataSetObserver(DataSetObserver observer) {
-
+    public MenuItems(Context context, ArrayList<Menu> menuArrayList) {
+        this.context = context;
+        this.menuArrayList = menuArrayList;
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return menuArrayList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return menuArrayList.get(position);
     }
 
     @Override
@@ -59,7 +42,17 @@ public class MenuItems extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        View view = convertView;
+        MonitorViewMenu monitorViewMenu = new MonitorViewMenu();
+        while (view == null) {
+            view = View.inflate(context, R.layout.content_liste_menu, null);
+            monitorViewMenu.libelleMenu = (TextView) view.findViewById(R.id.libelleMenu);
+            view.setTag(monitorViewMenu);
+        }
+
+        monitorViewMenu = (MonitorViewMenu) view.getTag();
+        monitorViewMenu.libelleMenu.setText((int) menuArrayList.get(position).getPrice());
+        return view;
     }
 
     @Override
