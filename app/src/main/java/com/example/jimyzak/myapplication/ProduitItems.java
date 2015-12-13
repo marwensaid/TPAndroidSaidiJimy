@@ -9,4 +9,8 @@ public class ProduitItems {
     public ProduitItems(ListProduit listProduit, ArrayList<Produit> produitArrayList) {
 
     }
+
+    public ProduitItems(ListProduits listProduits, ArrayList<Produit> produitsArrayList) {
+
+    }
 }
