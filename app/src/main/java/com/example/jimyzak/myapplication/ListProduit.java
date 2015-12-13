@@ -1,15 +1,116 @@
 package com.example.jimyzak.myapplication;
 
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+
+import com.androidquery.AQuery;
+import com.androidquery.callback.AjaxCallback;
+import com.androidquery.callback.AjaxStatus;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
  * Created by marwen on 13/12/15.
  */
 public class ListProduit extends AppCompatActivity {
 
-}
-class ListProduits extends AppCompatActivity {
+    private String url = "http://92.243.14.22:1337/product/";
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_list_produit);
+        AQuery aQuery = new AQuery(this);
+        final ArrayList<Produit> produitArrayList = new ArrayList<Produit>();
+
+        aQuery.ajax(url, JSONArray.class, new AjaxCallback<JSONArray>() {
+
+            @Override
+            public void callback(String url, JSONArray json, AjaxStatus status) {
+                ListView lst = (ListView) findViewById(R.id.list_produit);
+                if (json != null) {
+
+                    for (int i = 0; i < json.length(); i++) {
+                        try {
+                            JSONObject o = json.getJSONObject(i);
+                            Produit produit = new Produit();
+                            if (!o.getString("name").isEmpty() && !o.getString("price").isEmpty() && !o.getString("createdAt").isEmpty()) {
+                                produit.setNom(o.getString("nome"));
+                                produit.setPrice(o.getString("price"));
+                                produit.setCreatedAt(o.getString("createdAt"));
+
+                                if (!o.getString("id").isEmpty()) {
+                                    produit.setId(o.getString("id"));
+                                } else {
+                                    produit.setId("");
+                                }
+
+                                if (!o.getString("description").isEmpty()) {
+                                    produit.setDescription(o.getString("description"));
+                                } else {
+                                    produit.setDescription("");
+                                }
+                                if (!o.getString("calories").isEmpty()) {
+                                    produit.setCalories(o.getString("calories"));
+                                } else {
+                                    produit.setCalories("");
+                                }
+                                if (!o.getString("type").isEmpty()) {
+                                    produit.setType(o.getString("type"));
+                                } else {
+                                    produit.setType("");
+                                }
+                                if (!o.getString("picture").isEmpty()) {
+                                    produit.setPicture(o.getString("picture"));
+                                } else {
+                                    produit.setPicture("");
+                                }
+                                if (!o.getString("discount").isEmpty()) {
+                                    produit.setDiscount(o.getString("discount"));
+                                } else {
+                                    produit.setDiscount("");
+                                }
+                                if (!o.getString("description").isEmpty()) {
+                                    produit.setDescription(o.getString("description"));
+                                } else {
+                                    produit.setDescription("");
+                                }
+                                if (!o.getString("updatedAt").isEmpty()) {
+                                    produit.setUpdatedAt(o.getString("updatedAt"));
+                                } else {
+                                    produit.setUpdatedAt("");
+                                }
+
+                            } else {
+                                continue;
+                            }
+
+                            produitArrayList.add(produit);
+                        } catch (JSONException e) {
+
+                        }
+                    }
+
+                    ProduitItems produitItems = new ProduitItems(ListProduit.this, produitArrayList);
+                    lst.setAdapter((ListAdapter) produitItems);
+                }else {
+                    Log.d("ListProduit :", "stack");
+                }
+            }
+        });
+    }
 }
+
+
+        class ListProduits extends AppCompatActivity {
+
+        }
 
 
