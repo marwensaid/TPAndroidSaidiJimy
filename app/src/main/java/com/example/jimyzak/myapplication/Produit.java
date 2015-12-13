@@ -33,6 +33,7 @@ public class Produit implements Transformer, Serializable {
         this.nom = nom;
         this.id = id;
     }
+    public Produit() {}
 
     public String getId() {
         return id;
