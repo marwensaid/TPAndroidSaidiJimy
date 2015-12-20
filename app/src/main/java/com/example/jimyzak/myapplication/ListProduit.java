@@ -157,7 +157,6 @@ class ListProduits extends AppCompatActivity {
                     ProduitItems produitItems = new ProduitItems(ListProduits.this, produitsArrayList);
                     listView.setAdapter((ListAdapter) produitItems);
                 } else {
-                    //ajax error, show error code
                     Log.d("ListProduits :", "stack");
                 }
             }
