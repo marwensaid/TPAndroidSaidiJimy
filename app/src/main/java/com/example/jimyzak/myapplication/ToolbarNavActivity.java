@@ -14,7 +14,7 @@ import android.widget.Toolbar;
 /**
  * Created by marwen on 20/12/15.
  */
-public class ToolbarNav extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ToolbarNavActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private TextView textNomValue;
     private Button buttonAffichagePersonne;
     private Button buttonAffichageProduits;
@@ -34,24 +34,24 @@ public class ToolbarNav extends AppCompatActivity implements NavigationView.OnNa
         navigationView.setNavigationItemSelectedListener(this);
 
         Personne personne = (Personne) getIntent().getSerializableExtra("nom_prenom");
-        this.textNomValue =  (TextView)(this.findViewById(R.id.textViewHomeName));
+        this.textNomValue =  (TextView)(this.findViewById(R.id.textViewTitleHome));
         this.textNomValue.setText(personne.getPrenom() + " " + personne.getNom());
 
-        this.buttonAffichagePersonne = (Button)findViewById(R.id.bUtil);
+        this.buttonAffichagePersonne = (Button)findViewById(R.id.buttonAffichageUtilisateurView);
         this.buttonAffichagePersonne.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ToolbarNav.this, ListeDesCompteUser.class));
+                startActivity(new Intent(ToolbarNavActivity.this, ListeDesCompteUser.class));
             }
         });
 
-        this.buttonAffichageProduits = (Button)findViewById(R.id.bProd);
+        this.buttonAffichageProduits = (Button)findViewById(R.id.buttonAffichageProduitView);
         this.buttonAffichageProduits.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ToolbarNav.this, ListProduit.class));
+                startActivity(new Intent(ToolbarNavActivity.this, ListProduit.class));
             }
         });
 
@@ -60,7 +60,7 @@ public class ToolbarNav extends AppCompatActivity implements NavigationView.OnNa
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ToolbarNav.this, MenuActivity.class));
+                startActivity(new Intent(ToolbarNavActivity.this, MenuActivity.class));
             }
         });
     }
