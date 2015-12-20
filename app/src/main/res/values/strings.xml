@@ -19,6 +19,8 @@
     <string name="error_not_same_passwords">Mots de passe non identiques</string>
     <string name="please_wait" />
     <string name="inscription_ok" />
+    <string name="toolbar_close">close toolbar</string>
+    <string name="toolbar_open">open toolbar</string>
     <string-array name="country_arrays">
         <item>Pays</item>
         <item>Malaysia</item>
