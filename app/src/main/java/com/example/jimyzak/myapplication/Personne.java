@@ -1,10 +1,17 @@
 package com.example.jimyzak.myapplication;
 
+import android.util.Log;
+
 import com.androidquery.callback.AjaxStatus;
 import com.androidquery.callback.Transformer;
 import com.google.gson.Gson;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.concurrent.TransferQueue;
 
 /**
@@ -148,6 +155,21 @@ public class Personne implements Serializable, Transformer {
         this.timeCreation = timeCreation;
         this.timeMAJ = timeMAJ;
     }
+    public Personne(JSONObject object){
+
+        Log.w("Object json : ", object.toString());
+
+        try {
+            this.id = object.getString("id");
+            this.nom = object.getString("nom");
+            this.prenom = object.getString("prenom");
+            this.sexe = object.getString("sexe");
+            this.email = object.getString("email");
+            this.phone = object.getString("telephone");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public String toString() {
@@ -171,5 +193,15 @@ public class Personne implements Serializable, Transformer {
         Gson g = new Gson();
         return g.fromJson(new String(data), type);
     }
-
+    public static ArrayList<Personne> fromJson(JSONArray jsonObjects) {
+        ArrayList<Personne> persons = new ArrayList<>();
+        for (int i = 0; i < jsonObjects.length(); i++) {
+            try {
+                persons.add(new Personne(jsonObjects.getJSONObject(i)));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return persons;
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.jimyzak.myapplication;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -14,23 +15,25 @@ import java.util.List;
  */
 public class CompteUserConf extends BaseAdapter {
 
-    private ListeDesCompteUser listeDesCompteUser;
+    private Context context;
     public List<Personne> listCompteUser;
     public int positionA;
+    private View.OnClickListener listener;
 
-    public CompteUserConf(ListeDesCompteUser listeDesCompteUser, ArrayList<Personne> listCompteUser) {
-        this.listeDesCompteUser = listeDesCompteUser;
+    public CompteUserConf(Context context, List<Personne> listCompteUser,View.OnClickListener listener) {
+        this.context = context;
         this.listCompteUser = listCompteUser;
+        this.listener = listener;
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return listCompteUser.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return listCompteUser.get(position);
     }
 
     @Override
@@ -41,37 +44,25 @@ public class CompteUserConf extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
-        this.positionA = position;
         ComptePerso comptePerso = null;
         if(view==null){
-            view = View.inflate(listeDesCompteUser, R.layout.content_liste_compte, null);
+            view = View.inflate(context, R.layout.content_liste_compte, null);
             comptePerso = new ComptePerso();
-            comptePerso.nom_prenom= (TextView)view.findViewById(R.id.title_nom_prenom);
-            comptePerso.bSuppAccount = (Button) view.findViewById(R.id.buttomDeleteCU);
-            comptePerso.bSuppAccount.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    System.out.println("delete compteUser");
-                    String id =listCompteUser.get(CompteUserConf.this.positionA).getId();
-                    System.out.println("id ==> " + id);
-                    suppCompteUser task = new suppCompteUser();
-                    task.execute(id);
-                    listCompteUser.remove(CompteUserConf.this.positionA);
-                    CompteUserConf.this.notifyDataSetChanged();
-
-
-                }
-            });
-
+            comptePerso.nom_prenom= (TextView)view.findViewById(R.id.txt_view_buzz_username);
+            comptePerso.date_creation = (TextView) view.findViewById(R.id.txt_view_buzz_is_connected);
             view.setTag(comptePerso);
+            comptePerso.delete_compte = (TextView) view.findViewById(R.id.txt_view_delete_serveur);
         }
         else{
             comptePerso = (ComptePerso) view.getTag();
         }
         Personne personne= listCompteUser.get(position);
-        comptePerso.nom_prenom.setText(personne.getPrenom());
+        comptePerso.delete_compte.setTag(position);
+        comptePerso.delete_compte.setOnClickListener(this.listener);
+
+        comptePerso.nom_prenom.setText(personne.getNom());
+        comptePerso.date_creation.setText("deconnecté");
         return view;
     }
-
 
 }

@@ -5,59 +5,46 @@
     android:layout_height="match_parent"
     android:padding="10dp">
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView4"
-        android:src="@drawable/image_cercle" />
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/linearLayout"
+        android:text=""
+        android:id="@+id/txt_view_buzz_username"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/imageView4"
-        android:layout_marginStart="45dp">
+        android:layout_toRightOf="@+id/txt_view_buzz_buzzer"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/title_nom_prenom"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="15dp"
-        android:textColor="@color/button_material_dark" />
+        android:text="-"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/txt_view_buzz_username"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:id="@+id/txt_view_delete_serveur"
+        android:gravity="right"/>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/linearLayout"
-        android:layout_alignEnd="@+id/linearLayout"
-        android:layout_marginLeft="9dp"
-        android:weightSum="1">
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/icone"
-        android:src="@drawable/abc_btn_check_to_on_mtrl_000" />
+        android:layout_height="25dp"
+        android:text=""
+        android:id="@+id/txt_view_buzz_is_connected"
+        android:layout_below="@+id/txt_view_buzz_username"
+        android:layout_toRightOf="@+id/txt_view_buzz_buzzer"
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:id="@+id/connectionText"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/background_material_light"
-        android:textSize="12dp" />
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-        android:text="Supprimer"
-        android:id="@+id/buttomDeleteCU"
-        android:layout_weight="0.21" />
-    </LinearLayout>
-    </LinearLayout>
+        android:text="Buzzer"
+        android:id="@+id/txt_view_buzz_buzzer"
+        android:drawableTop="@drawable/image_cercle"
+        android:textAlignment="center"/>
 </RelativeLayout>

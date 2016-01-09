@@ -8,6 +8,7 @@ import android.widget.TextView;
  */
 public class ComptePerso {
     public TextView nom_prenom;
-    public Button bSuppAccount;
+    public TextView date_creation;
+    public TextView delete_compte;
 
 }

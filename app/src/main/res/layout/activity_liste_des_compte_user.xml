@@ -9,10 +9,21 @@
     android:paddingTop="16dp"
     tools:context="com.example.jimyzak.myapplication.ListeDesCompteUser">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajouter un nouveau user"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/buttonAjoutUser"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/mybutton1" />
+
     <ListView
         android:id="@+id/list_compte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonAjoutUser"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        />
 </RelativeLayout>
