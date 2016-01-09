@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jimyzak.myapplication..MenuGeneralActivity">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Liste des serveurs"
+        android:id="@+id/buttonserv"
+        android:layout_below="@+id/textViewSeveurs"
+        android:layout_marginTop="164dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/mybutton1"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="liste des produits"
+        android:id="@+id/buttonprod"
+        android:layout_marginTop="55dp"
+        android:layout_below="@+id/buttonserv"
+        android:layout_alignStart="@+id/buttonserv"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/mybutton1" />
+
+</LinearLayout>
